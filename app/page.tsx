@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Heart, Star, Coffee, Film, Utensils, Clock } from "lucide-react";
+import { Heart, Star, Coffee, Utensils, Clock } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface Answers {
@@ -343,7 +343,7 @@ export default function EnchantingDateProposalApp() {
         className="mt-6 text-lg text-pink-500"
       >
         <p>We&apos;ll enjoy some quality time and know more about each other.</p>
-        <p>can't wait to see you. Deepsikha Madame.</p>
+        <p>can&apos;t wait to see you. Deepsikha Madame.</p>
         <p className="mt-4 font-bold">
           Your excitement level: {answers.excitement}/100
         </p>
