@@ -21,7 +21,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Heart, Star, Coffee, Utensils, Clock } from "lucide-react";
+import { 
+  Puzzle, 
+  Cake, 
+  Waves, 
+  Utensils, 
+  Car, 
+  HelpCircle,
+  Clock,
+  Heart,
+  Star
+} from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface Answers {
@@ -72,8 +82,8 @@ export default function EnchantingDateProposalApp() {
   const steps = [
     // Step 0: Initial Question
     <motion.div key="step0" className="text-center" {...fadeInUp}>
-      <h1 className="text-4xl font-bold mb-6 text-pink-600">Hi Deepsikha,
-        Will you go on a date with me?
+      <h1 className="text-4xl font-bold mb-6 text-pink-600">Hi Moumita,
+        Will you go on a Adda+date with me?
       </h1>
       <motion.img
         initial={{ opacity: 0, scale: 0.8 }}
@@ -186,11 +196,12 @@ export default function EnchantingDateProposalApp() {
       </h2>
       <div className="grid grid-cols-2 gap-6 mb-6">
         {[
-          { name: "Coffee or Tea", icon: <Utensils /> },
-          { name: "Dora-Cakes?", icon: <Utensils /> },
+          { name: "Escape Room Puzzle", icon: <Puzzle /> },
+          { name: "Dora-Cakes? + Adda", icon: <Cake /> },
+          { name: "Ganga Ghat? + Adda", icon: <Waves /> },
+          { name: "Short Drive? + Adda", icon: <Car /> },
           { name: "Lunch or brunch", icon: <Utensils /> },
-          { name: "Short Drive?", icon: <Coffee /> },
-          { name: "Any events or place", icon: <Utensils /> },
+          { name: "Anything Else", icon: <HelpCircle /> },
         ].map(({ name, icon }) => (
           <motion.button
             key={name}
@@ -342,8 +353,8 @@ export default function EnchantingDateProposalApp() {
         transition={{ delay: 1, duration: 1 }}
         className="mt-6 text-lg text-pink-500"
       >
-        <p>We&apos;ll enjoy some quality time and know more about each other.</p>
-        <p>can&apos;t wait to see you. Deepsikha Madame.</p>
+        <p>O go! We&apos;ll enjoy some quality time and know more about each other.</p>
+        <p>can&apos;t wait to see you. Moumita Madame.</p>
         <p className="mt-4 font-bold">
           Your excitement level: {answers.excitement}/100
         </p>
