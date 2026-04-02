@@ -21,12 +21,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { 
-  Puzzle, 
-  Cake, 
-  Waves, 
-  Utensils, 
-  Car, 
+import {
+  Puzzle,
+  Cake,
+  Waves,
+  Utensils,
+  Car,
   HelpCircle,
   Clock,
   Heart,
@@ -56,6 +56,9 @@ const fadeInUp = {
 };
 
 export default function EnchantingDateProposalApp() {
+  const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({
     isAvailable: null,
@@ -207,11 +210,10 @@ export default function EnchantingDateProposalApp() {
             key={name}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`h-32 flex flex-col items-center justify-center rounded-lg shadow-md transition-colors duration-300 ${
-              answers.food.includes(name)
-                ? "bg-pink-500 text-white"
-                : "bg-white text-pink-600 hover:bg-pink-100"
-            }`}
+            className={`h-32 flex flex-col items-center justify-center rounded-lg shadow-md transition-colors duration-300 ${answers.food.includes(name)
+              ? "bg-pink-500 text-white"
+              : "bg-white text-pink-600 hover:bg-pink-100"
+              }`}
             onClick={() => {
               const newFood = answers.food.includes(name)
                 ? answers.food.filter((f) => f !== name)
@@ -273,8 +275,48 @@ export default function EnchantingDateProposalApp() {
     //   </div>
     // </motion.div>,
 
-    // Step 4: Excitement Rating
+
+    // Step 4: Compliment Page
     <motion.div key="step4" className="text-center" {...fadeInUp}>
+      <h2 className="text-3xl font-bold mb-6 text-pink-600">
+        Something I really want you to know 💖  Moumita Madame
+      </h2>
+
+      <motion.img
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        src="https://media.tenor.com/59regbBE_kwAAAAd/tkthao219-bubududu.gif"
+        alt="Dudu Bubu love gif"
+        className="w-full max-w-md mx-auto mb-6 rounded-lg shadow-lg"
+      />
+
+      <div className="text-lg text-pink-500 space-y-3 px-4">
+        <p>1. Good height 😉</p>
+        <p>2. Old-school mindset (rare these days)</p>
+        <p>3. Clear and sorted thinking</p>
+        <p>4. Playful and jolly vibe</p>
+        <p>5. Can actually understand my jokes 😌</p>
+        <p>6. A genuinely good soul</p>
+
+        <p className="font-semibold text-pink-600 mt-4">
+          You asked for compliments… so here it is 🙂
+
+          We just talked today, but it already felt easy and natural.
+          So yeah… thought I should say this before asking you out.
+        </p>
+      </div>
+
+      <Button
+        onClick={() => setStep(step + 1)}
+        className="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+      >
+        Continue 💖
+      </Button>
+    </motion.div>,
+
+    // Step 5: Excitement Rating
+    <motion.div key="step5" className="text-center" {...fadeInUp}>
       <h2 className="text-3xl font-bold mb-6 text-pink-600">
         How much you like me?
       </h2>
@@ -321,25 +363,29 @@ export default function EnchantingDateProposalApp() {
       </Button>
     </motion.div>,
 
-    // Step 5: Final Message
-    <motion.div key="step5" className="text-center" {...fadeInUp}>
+    // Step 6: Final Message
+    <motion.div key="step6" className="text-center" {...fadeInUp}>
       <h2 className="text-4xl font-bold mb-6 text-pink-600">
-        It&apos;s a date.
+        It&apos;s a Adda Date.
       </h2>
+
       <p className="text-xl mb-2 text-pink-500">
         I can&apos;t wait to see you on:
       </p>
+
       <p className="text-2xl font-bold mb-6 text-pink-600">
         {answers.date?.toDateString()} at {answers.time}
       </p>
+
       <motion.img
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         src="https://media.tenor.com/yvUCU981VYoAAAAj/mochi-cat-goma.gif"
-        alt="Excited bear gif"
+        alt="Excited gif"
         className="w-full max-w-md mx-auto mb-4 rounded-lg shadow-lg"
-      />{" "}
+      />
+
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -347,6 +393,7 @@ export default function EnchantingDateProposalApp() {
       >
         <Star className="text-yellow-400 w-16 h-16 mx-auto mt-6" />
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -354,10 +401,72 @@ export default function EnchantingDateProposalApp() {
         className="mt-6 text-lg text-pink-500"
       >
         <p>O go! We&apos;ll enjoy some quality time and know more about each other.</p>
-        <p>can&apos;t wait to see you. Moumita Madame.</p>
+        <p>Can&apos;t wait to see you, Moumita Madame.</p>
+
         <p className="mt-4 font-bold">
           Your excitement level: {answers.excitement}/100
         </p>
+      </motion.div>
+
+      {/* 💬 CHAT BOX */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2 }}
+        className="mt-8 bg-white/80 rounded-xl p-4 shadow-lg"
+      >
+        <p className="text-pink-600 font-semibold mb-2">
+          Send me a message 💌
+        </p>
+
+        <textarea
+          placeholder="What do you think about this adda proposal? 😊"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          disabled={isSent}
+          className="w-full p-3 rounded-lg border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300 text-sm"
+          rows={3}
+        />
+
+        <Button
+          onClick={async () => {
+            try {
+              setIsSending(true);
+
+              await fetch('/api/send-response', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  ...answers,
+                  message
+                })
+              });
+
+              setIsSent(true);
+            } catch (err) {
+              console.error(err);
+              alert("Failed to send 😢");
+            } finally {
+              setIsSending(false);
+            }
+          }}
+          disabled={!message.trim() || isSending || isSent}
+          className="mt-3 bg-pink-500 hover:bg-pink-600 text-white w-full rounded-lg"
+        >
+          {isSending ? "Sending..." : isSent ? "Sent 💖" : "Send 💕"}
+        </Button>
+
+        {isSent && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-green-500 mt-3 font-semibold"
+          >
+            Message sent successfully 💖
+          </motion.p>
+        )}
       </motion.div>
     </motion.div>,
   ];
@@ -365,7 +474,7 @@ export default function EnchantingDateProposalApp() {
   useEffect(() => {
     const saveAnswers = async () => {
       console.log('Saved answers:', answers);
-      
+
       // Save to localStorage
       localStorage.setItem('dateProposalAnswers', JSON.stringify(answers));
 
@@ -376,16 +485,15 @@ export default function EnchantingDateProposalApp() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(answers)
+          body: JSON.stringify({
+            ...answers,
+            message
+          })
         });
       } catch (error) {
         console.error('Failed to send response:', error);
       }
     };
-
-    if (step === steps.length - 1) {
-      saveAnswers();
-    }
   }, [step, answers, steps.length]);
 
   return (

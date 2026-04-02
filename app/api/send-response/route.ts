@@ -21,23 +21,31 @@ export async function POST(request: Request) {
     const data = await request.json()
     
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: '💕 New Date Response!',
-      html: `
-        <h1>She responded!</h1>
-        <p>Date: ${new Date(data.date).toLocaleDateString()}</p>
-        <p>Time: ${data.time}</p>
-        <p>Food: ${data.food.join(', ')}</p>
-        <p>Movie: ${data.movie}</p>
-        <p>Excitement: ${data.excitement}/100</p>
-      `,
-      attachments: [{
-        filename: `date-response-${new Date().toISOString()}.json`,
-        content: JSON.stringify(data, null, 2),
-        contentType: 'application/json'
-      }]
-    })
+  from: process.env.EMAIL_USER,
+  to: process.env.EMAIL_USER,
+  subject: '💕 New Date Response!',
+  html: `
+    <h1>She responded!</h1>
+
+    <p><b>Date:</b> ${new Date(data.date).toLocaleDateString()}</p>
+    <p><b>Time:</b> ${data.time}</p>
+    <p><b>Food:</b> ${data.food.join(', ')}</p>
+    <p><b>Movie:</b> ${data.movie}</p>
+    <p><b>Excitement:</b> ${data.excitement}/100</p>
+
+    <hr />
+
+    <h2>💌 Her Message:</h2>
+    <p>${data.message || "No message sent"}</p>
+  `,
+  attachments: [
+    {
+      filename: `date-response-${new Date().toISOString()}.json`,
+      content: JSON.stringify(data, null, 2),
+      contentType: 'application/json'
+    }
+  ]
+});
     
     return NextResponse.json({ success: true })
   } catch (error: unknown) {
