@@ -85,8 +85,8 @@ export default function EnchantingDateProposalApp() {
   const steps = [
     // Step 0: Initial Question
     <motion.div key="step0" className="text-center" {...fadeInUp}>
-      <h1 className="text-4xl font-bold mb-6 text-pink-600">Hi Moumita,
-        Will you go on a Adda+date with me?
+      <h1 className="text-4xl font-bold mb-6 text-pink-600">Hi Megha,
+        Will you go on a date with me?
       </h1>
       <motion.img
         initial={{ opacity: 0, scale: 0.8 }}
@@ -199,12 +199,10 @@ export default function EnchantingDateProposalApp() {
       </h2>
       <div className="grid grid-cols-2 gap-6 mb-6">
         {[
-          { name: "Escape Room Puzzle", icon: <Puzzle /> },
-          { name: "Dora-Cakes? + Adda", icon: <Cake /> },
-          { name: "Ganga Ghat? + Adda", icon: <Waves /> },
-          { name: "Short Drive? + Adda", icon: <Car /> },
-          { name: "Lunch or brunch", icon: <Utensils /> },
-          { name: "Anything Else", icon: <HelpCircle /> },
+          
+          { name: "Dora-Cakes?", icon: <Cake /> },
+          
+          { name: "More Dora Cakes?", icon: <Cake /> },
         ].map(({ name, icon }) => (
           <motion.button
             key={name}
@@ -279,7 +277,7 @@ export default function EnchantingDateProposalApp() {
     // Step 4: Compliment Page
     <motion.div key="step4" className="text-center" {...fadeInUp}>
       <h2 className="text-3xl font-bold mb-6 text-pink-600">
-        Something I really want you to know 💖  Moumita Madame
+        Something I really want you to know 💖  Megha Madame
       </h2>
 
       <motion.img
@@ -292,18 +290,13 @@ export default function EnchantingDateProposalApp() {
       />
 
       <div className="text-lg text-pink-500 space-y-3 px-4">
-        <p>1. Good height 😉</p>
-        <p>2. Old-school mindset (rare these days)</p>
-        <p>3. Clear and sorted thinking</p>
-        <p>4. Playful and jolly vibe</p>
-        <p>5. Can actually understand my jokes 😌</p>
-        <p>6. A genuinely good soul</p>
+        <p>1. Nice Smile 😉</p>
+        <p>2. Clear and sorted thinking</p>
+        <p>3. Playful and jolly vibe</p>
+        <p>4. Can actually understand my jokes 😌</p>
 
         <p className="font-semibold text-pink-600 mt-4">
-          You asked for compliments… so here it is 🙂
-
-          We just talked today, but it already felt easy and natural.
-          So yeah… thought I should say this before asking you out.
+          Here are some meethi meethi batein!
         </p>
       </div>
 
@@ -366,7 +359,7 @@ export default function EnchantingDateProposalApp() {
     // Step 6: Final Message
     <motion.div key="step6" className="text-center" {...fadeInUp}>
       <h2 className="text-4xl font-bold mb-6 text-pink-600">
-        It&apos;s a Adda Date.
+        It&apos;s a Date.
       </h2>
 
       <p className="text-xl mb-2 text-pink-500">
@@ -401,7 +394,7 @@ export default function EnchantingDateProposalApp() {
         className="mt-6 text-lg text-pink-500"
       >
         <p>O go! We&apos;ll enjoy some quality time and know more about each other.</p>
-        <p>Can&apos;t wait to see you, Moumita Madame.</p>
+        <p>Can&apos;t wait to see you, Megha Madame.</p>
 
         <p className="mt-4 font-bold">
           Your excitement level: {answers.excitement}/100
@@ -420,7 +413,7 @@ export default function EnchantingDateProposalApp() {
         </p>
 
         <textarea
-          placeholder="What do you think about this adda proposal? 😊"
+          placeholder="What do you think about this date proposal? 😊"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           disabled={isSent}
